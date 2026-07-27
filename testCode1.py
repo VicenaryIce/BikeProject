@@ -15,6 +15,7 @@ time.sleep(2)
 
 input("Press enter to take a photo")
 cam.capture_file("/home/sid/Desktop/BikeProject/ringo.jpg", format = "jpeg")
+print("done")
 
 with open("/home/sid/Desktop/BikeProject/ringo.jpg", "rb") as f:
     image_data = base64.b64encode(f.read()).decode("utf-8")
