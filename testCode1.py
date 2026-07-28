@@ -3,6 +3,7 @@ from picamera2.encoders import H264Encoder
 from picamera2.outputs import FfmpegOutput
 import time
 global cam 
+
 import requests
 import base64
 
@@ -22,11 +23,12 @@ with open("/home/sid/Desktop/BikeProject/ringo.jpg", "rb") as f:
 
 response = requests.post("http://localhost:11434/api/generate",json={
     "model": "moondream",
-    "prompt": "Describe what you see in this image.",
+    "prompt": "Describe what you see in this image. List it in bullet points, and be as quick as possible. ",
     "images": [image_data],
     "stream": False
 }
 )
+
 
 print(response.json()["response"])
 
