@@ -6,8 +6,7 @@ import os
 from groq import Groq
 from datetime import datetime
 
-client = Groq(api_key="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")
-
+client = Groq(api_key="YOUR_GROQ_API_KEY")
 photos_dir = "/home/sid/Desktop/BikeProject/photos"
 os.makedirs(photos_dir, exist_ok=True)
 

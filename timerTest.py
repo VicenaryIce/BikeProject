@@ -9,8 +9,7 @@ from groq import Groq
 cam = Picamera2()
 
 cam.start()
-client = Groq(api_key="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")
-
+client = Groq(api_key="YOUR_GROQ_API_KEY")
 time.sleep(2)
 start_time = time.time()
 
