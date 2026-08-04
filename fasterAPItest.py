@@ -22,7 +22,7 @@ print("done")
 
 
 
-client = Groq(api_key="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")
+client = Groq(api_key="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")
 
 with open("/home/sid/Desktop/BikeProject/ringo.jpg", "rb") as f:
     image_data = base64.b64encode(f.read()).decode("utf-8")
