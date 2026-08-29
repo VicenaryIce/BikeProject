@@ -1,4 +1,3 @@
-import sqlite3
 from picamera2 import Picamera2
 import time
 import base64
@@ -7,23 +6,15 @@ import serial
 import pynmea2
 from groq import Groq
 from datetime import datetime
+from supabase import create_client
+
+SUPABASE_URL = "https://mgvxkmhgqhtzclsykanh.supabase.co"
+SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ndnhrbWhncWh0emNsc3lrYW5oIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgwMDY4NjMsImV4cCI6MjEwMzU4Mjg2M30.fH_xDJJZAVCA5BcLU9_PMsqFSkuF8x00U0GGJKVjyJQ"
+supabase = create_client(SUPABASE_URL,SUPABASE_KEY)
 
 client = Groq(api_key="hello")
 photos_dir = "/home/sid/Desktop/BikeProject/photos"
 os.makedirs(photos_dir, exist_ok=True)
-
-conn = sqlite3.connect("/home/sid/Desktop/BikeProject/table3.db")
-cursor = conn.cursor()
-cursor.execute("""
-    CREATE TABLE IF NOT EXISTS photos (
-        id INTEGER PRIMARY KEY,
-        timestamp TEXT NOT NULL,
-        description TEXT NOT NULL,
-        image_path TEXT,
-        latitude REAL,
-        longitude REAL
-    )
-""")
 
 gps_serial = serial.Serial("/dev/ttyAMA0", baudrate=9600, timeout=1)
 
@@ -71,15 +62,16 @@ try:
             )
 
             print(response.choices[0].message.content)
-            cursor.execute(
-                "INSERT INTO photos (timestamp, description, image_path, latitude, longitude) VALUES (?, ?, ?, ?, ?)",
-                (timestamp, response.choices[0].message.content, photo_path, lat, lon)
-            )
-            conn.commit()
+            description = response.choices[0].message.content
+            supabase.table("PiProject").insert({
+                "timestamp": timestamp,
+                "description" : description,
+                "image_path" : photo_path,
+                "image_data": image_data,
+            }).execute()
             start_time = time.time()
         time.sleep(0.1)
 finally:
-    conn.close()
     cam.stop()
     gps_serial.close()
     print("Database connection and camera closed safely.")
