@@ -8,12 +8,12 @@ from groq import Groq
 from datetime import datetime
 from supabase import create_client
 
-SUPABASE_URL = "YOUR_SUPABASE_URL"
-SUPABASE_KEY = "YOUR_SUPABASE_KEY"
+SUPABASE_URL = "https://mgvxkmhgqhtzclsykanh.supabase.co"
+SUPABASE_KEY = "YOUR_ANON_KEY"
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 client = Groq(api_key="YOUR_GROQ_API_KEY")
-photos_dir = "/home/sid/Desktop/BikeProject/photos"
+photos_dir = "/home/sid/BikeProject/photos"
 os.makedirs(photos_dir, exist_ok=True)
 
 gps_serial = serial.Serial("/dev/ttyAMA0", baudrate=9600, timeout=1)
@@ -50,9 +50,15 @@ try:
             with open(photo_path, "rb") as f:
                 image_data = base64.b64encode(f.read()).decode("utf-8")
 
+            with open(photo_path, "rb") as f:
+                supabase.storage.from_("photos").upload(f"{timestamp}.jpg", f)
+
+            photo_url = supabase.storage.from_("photos").get_public_url(f"{timestamp}.jpg")
+
             response = client.chat.completions.create(
                 model="qwen/qwen3.6-27b",
-                reasoning_effort="low",
+                reasoning_effort="none",
+                max_tokens=500,
                 messages=[{
                     "role": "user",
                     "content": [
@@ -64,14 +70,16 @@ try:
 
             print(response.choices[0].message.content)
             description = response.choices[0].message.content
+
             supabase.table("PiProject").insert({
                 "timestamp": timestamp,
                 "description": description,
-                "image_path": photo_path,
-                "image_data": image_data,
+                "image_url": photo_url,
                 "latitude": lat,
                 "longitude": lon,
             }).execute()
+
+            print("logged to Supabase")
             start_time = time.time()
         time.sleep(0.1)
 finally:
