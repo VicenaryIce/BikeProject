@@ -8,11 +8,11 @@ from groq import Groq
 from datetime import datetime
 from supabase import create_client
 
-SUPABASE_URL = "https://mgvxkmhgqhtzclsykanh.supabase.co"
-SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ndnhrbWhncWh0emNsc3lrYW5oIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgwMDY4NjMsImV4cCI6MjEwMzU4Mjg2M30.fH_xDJJZAVCA5BcLU9_PMsqFSkuF8x00U0GGJKVjyJQ"
-supabase = create_client(SUPABASE_URL,SUPABASE_KEY)
+SUPABASE_URL = "YOUR_SUPABASE_URL"
+SUPABASE_KEY = "YOUR_SUPABASE_KEY"
+supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
-client = Groq(api_key="hello")
+client = Groq(api_key="YOUR_GROQ_API_KEY")
 photos_dir = "/home/sid/Desktop/BikeProject/photos"
 os.makedirs(photos_dir, exist_ok=True)
 
@@ -52,6 +52,7 @@ try:
 
             response = client.chat.completions.create(
                 model="qwen/qwen3.6-27b",
+                reasoning_effort="low",
                 messages=[{
                     "role": "user",
                     "content": [
@@ -65,9 +66,11 @@ try:
             description = response.choices[0].message.content
             supabase.table("PiProject").insert({
                 "timestamp": timestamp,
-                "description" : description,
-                "image_path" : photo_path,
+                "description": description,
+                "image_path": photo_path,
                 "image_data": image_data,
+                "latitude": lat,
+                "longitude": lon,
             }).execute()
             start_time = time.time()
         time.sleep(0.1)
