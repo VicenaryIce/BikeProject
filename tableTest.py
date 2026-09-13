@@ -1,4 +1,5 @@
 from picamera2 import Picamera2
+from PIL import Image
 import time
 import base64
 import os
@@ -8,11 +9,11 @@ from groq import Groq
 from datetime import datetime
 from supabase import create_client
 
-SUPABASE_URL = "https://mgvxkmhgqhtzclsykanh.supabase.co"
-SUPABASE_KEY = "YOUR_ANON_KEY"
+SUPABASE_URL = "hidden"
+SUPABASE_KEY = "hidden"
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
-client = Groq(api_key="YOUR_GROQ_API_KEY")
+client = Groq(api_key="hidden")
 photos_dir = "/home/sid/BikeProject/photos"
 os.makedirs(photos_dir, exist_ok=True)
 
@@ -22,7 +23,7 @@ def get_gps():
     for _ in range(20):
         try:
             line = gps_serial.readline().decode("ascii", errors="replace")
-            if line.startswith("$GPRMC") or line.startswith("$GPGGA"):
+            if line.startswith("$GPRMC") or line.startswith("$GPGGA") or line.startswith("$GNRMC") or line.startswith("$GNGGA"):
                 msg = pynmea2.parse(line)
                 if hasattr(msg, "latitude") and msg.latitude != 0:
                     return msg.latitude, msg.longitude
@@ -44,6 +45,10 @@ try:
             cam.capture_file(photo_path, format="jpeg")
             print("photo taken")
 
+            img = Image.open(photo_path)
+            img = img.rotate(180)
+            img.save(photo_path)
+
             lat, lon = get_gps()
             print(f"GPS: {lat}, {lon}")
 
@@ -51,7 +56,11 @@ try:
                 image_data = base64.b64encode(f.read()).decode("utf-8")
 
             with open(photo_path, "rb") as f:
-                supabase.storage.from_("photos").upload(f"{timestamp}.jpg", f)
+                supabase.storage.from_("photos").upload(
+                    f"{timestamp}.jpg",
+                    f,
+                    {"content-type": "image/jpeg"}
+                )
 
             photo_url = supabase.storage.from_("photos").get_public_url(f"{timestamp}.jpg")
 
