@@ -1,0 +1,198 @@
+nohup: ignoring input
+2 old photo(s) queued for retry
+[0:15:16.204486430] [1922]  INFO Camera camera_manager.cpp:340 libcamera v0.7.1+rpt20260609
+[0:15:16.213320358] [1925]  INFO RPI pisp.cpp:720 libpisp version v1.5.0 01-05-2026 (05:33:53)
+[0:15:16.221096548] [1925]  INFO IPAProxy ipa_proxy.cpp:184 Using tuning file /usr/share/libcamera/ipa/rpi/pisp/imx708.json
+[0:15:16.228471083] [1925]  INFO Camera camera_manager.cpp:223 Adding camera '/base/axi/pcie@1000120000/rp1/i2c@80000/imx708@1a' for pipeline handler rpi/pisp
+[0:15:16.228504747] [1925]  INFO RPI pisp.cpp:1181 Registered camera /base/axi/pcie@1000120000/rp1/i2c@80000/imx708@1a to CFE device /dev/media0 and ISP device /dev/media1 using PiSP variant BCM2712_D0
+[0:15:16.230936088] [1925]  WARN V4L2 v4l2_pixelformat.cpp:346 Unsupported V4L2 pixel format Nc30
+[0:15:16.230952457] [1925]  WARN V4L2 v4l2_pixelformat.cpp:346 Unsupported V4L2 pixel format Nc12
+[0:15:16.231490918] [1922]  INFO Camera camera.cpp:1216 configuring streams: (0) 2304x1296-BGR888/sRGB (1) 2304x1296-RGGB_PISP_COMP1/RAW
+[0:15:16.231584652] [1925]  INFO RPI pisp.cpp:1485 Sensor: /base/axi/pcie@1000120000/rp1/i2c@80000/imx708@1a - Selected sensor format: 2304x1296-SRGGB10_1X10/RAW - Selected CFE format: 2304x1296-PC1R/RAW
+logged 20261025_141432
+logged 20261025_141441
+photo taken, GPS: None, None
+logged 20261025_145052
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+logged 20261025_145059
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+logged 20261025_145105
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+logged 20261025_145112
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+logged 20261025_145118
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+logged 20261025_145125
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+logged 20261025_145131
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+logged 20261025_145138
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+logged 20261025_145144
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+logged 20261025_145151
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+logged 20261025_145157
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+logged 20261025_145204
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+logged 20261025_145210
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+logged 20261025_145217
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+logged 20261025_145230
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+logged 20261025_145238
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+logged 20261025_145245
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+logged 20261025_145253
+photo taken, GPS: None, None
+photo taken, GPS: 52.089566166666664, 4.3004438333333335
+photo taken, GPS: 52.08956933333333, 4.3004515
+photo taken, GPS: 52.0895915, 4.300429333333334
+photo taken, GPS: 52.0896435, 4.300466
+logged 20261025_145301
+photo taken, GPS: 52.089868, 4.300354
+photo taken, GPS: 52.089924333333336, 4.3003735
+photo taken, GPS: 52.0900405, 4.300315333333334
+logged 20261025_145308
+photo taken, GPS: None, None
+photo taken, GPS: 52.09040366666667, 4.2999215
+photo taken, GPS: 52.09040533333334, 4.299905166666667
+photo taken, GPS: 52.090589666666666, 4.299707833333334
+photo taken, GPS: 52.09087516666666, 4.299490166666667
+logged 20261025_145315
+photo taken, GPS: 52.09106833333333, 4.299281833333334
+photo taken, GPS: 52.0912155, 4.299127666666666
+photo taken, GPS: 52.09130866666667, 4.299155333333333
+photo taken, GPS: 52.0914525, 4.299059166666667
+logged 20261025_145321
+photo taken, GPS: 52.09147816666667, 4.2990205
+photo taken, GPS: 52.09151633333333, 4.298974
+photo taken, GPS: 52.09159366666667, 4.298916
+photo taken, GPS: 52.091641333333335, 4.298897333333334
+logged 20261025_145326
+logged 20261025_145334
+logged 20261025_145342
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+photo taken, GPS: 52.091699166666665, 4.2988305
+logged 20261025_145349
+photo taken, GPS: 52.091647333333334, 4.298763166666666
+photo taken, GPS: 52.09175283333333, 4.298636166666666
+photo taken, GPS: 52.091711333333336, 4.298632333333333
+photo taken, GPS: 52.09169, 4.298573
+logged 20261025_145356
+photo taken, GPS: None, None
+photo taken, GPS: 52.09209116666667, 4.298386833333334
+photo taken, GPS: 52.092171, 4.298188833333334
+photo taken, GPS: 52.09226833333334, 4.298072333333334
+logged 20261025_145401
+photo taken, GPS: None, None
+photo taken, GPS: None, None
+photo taken, GPS: 52.0930525, 4.297770666666667
+photo taken, GPS: 52.093100166666666, 4.297732166666667
+logged 20261025_145408
+photo taken, GPS: 52.09312883333333, 4.297934833333334
+photo taken, GPS: 52.093220333333335, 4.298246166666667
+photo taken, GPS: 52.0933845, 4.298468833333334
+photo taken, GPS: 52.093522166666666, 4.298742166666667
+logged 20261025_145413
+photo taken, GPS: 52.093559, 4.299250333333333
+photo taken, GPS: 52.093810833333336, 4.299352833333334
+photo taken, GPS: 52.093926333333336, 4.2999901666666664
+photo taken, GPS: 52.094004, 4.300017
+logged 20261025_145418
+photo taken, GPS: 52.094102166666666, 4.3002883333333335
+photo taken, GPS: 52.094198, 4.300558
+photo taken, GPS: 52.09431983333333, 4.300669
+photo taken, GPS: 52.09432533333333, 4.300767
+logged 20261025_145425
+photo taken, GPS: 52.09461066666667, 4.300705833333334
+photo taken, GPS: 52.094657166666664, 4.300721333333334
+photo taken, GPS: 52.094664333333334, 4.300713666666667
+photo taken, GPS: 52.0946675, 4.300697
+logged 20261025_145431
+photo taken, GPS: 52.0946575, 4.300736833333334
+photo taken, GPS: 52.094679, 4.300694666666667
+photo taken, GPS: 52.094668666666664, 4.300713333333333
+photo taken, GPS: 52.09464883333333, 4.300742666666666
+logged 20261025_145438
+photo taken, GPS: 52.094638333333336, 4.300770333333333
+photo taken, GPS: 52.09466416666667, 4.3007235
+photo taken, GPS: 52.09469466666667, 4.300718666666667
+photo taken, GPS: 52.094797166666666, 4.300714166666666
+logged 20261025_145446
+photo taken, GPS: 52.094910166666665, 4.30064
+photo taken, GPS: 52.09487033333333, 4.300453166666666
+photo taken, GPS: 52.094688833333336, 4.3004446666666665
+photo taken, GPS: 52.094479666666665, 4.300418
+logged 20261025_145451
+photo taken, GPS: 52.09427983333333, 4.300539333333333
+photo taken, GPS: 52.094255, 4.300712
+photo taken, GPS: 52.094226, 4.300756
+photo taken, GPS: None, None
+logged 20261025_145500
+photo taken, GPS: None, None
+photo taken, GPS: 52.093682333333334, 4.3013705
+photo taken, GPS: 52.09363783333333, 4.301443833333333
+photo taken, GPS: None, None
+logged 20261025_145505
+photo taken, GPS: None, None
+photo taken, GPS: 52.093043333333334, 4.301825333333333
+photo taken, GPS: 52.093014333333336, 4.301559166666666
+photo taken, GPS: 52.092931166666666, 4.3015105
+logged 20261025_145512
+photo taken, GPS: 52.09285666666667, 4.3016245
+photo taken, GPS: 52.09284366666667, 4.301636333333334
+photo taken, GPS: 52.092877333333334, 4.3015221666666665
+photo taken, GPS: 52.0927905, 4.30163
+logged 20261025_145517
+photo taken, GPS: 52.092757666666664, 4.301653666666667
+photo taken, GPS: 52.09274766666667, 4.301663
+photo taken, GPS: 52.092767333333335, 4.301644666666666
+photo taken, GPS: 52.09278466666667, 4.301633333333333
+logged 20261025_145522
+photo taken, GPS: 52.09276583333333, 4.301662333333334
+photo taken, GPS: 52.092757666666664, 4.301724833333333
+photo taken, GPS: 52.0927485, 4.301741166666667
+photo taken, GPS: 52.09274716666667, 4.3017468333333335
+Stopping... press Ctrl+C again to force quit.
+Finishing uploads (up to 15 seconds)...
+logged 20261025_145530
+Done.

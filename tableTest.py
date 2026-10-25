@@ -16,17 +16,28 @@ from picamera2 import Picamera2
 from supabase import create_client
 
 SUPABASE_URL = "https://mgvxkmhgqhtzclsykanh.supabase.co"
-SUPABASE_KEY = "######"
+SUPABASE_KEY = "#####"
 
-GROQ_API_KEY = "#####3"
+
+GROQ_API_KEY = "#######"
 MODEL = "qwen/qwen3.8-27b"
 PHOTOS_DIR = "/home/sid/BikeProject/photos"
 
 PROMPT = (
-    "Look at this road photo. If you see any infrastructure issues such as "
-    "potholes, cracks, broken road markings, damaged signage, uneven surfaces, "
-    "or debris, list them briefly in 1-2 bullet points. If there are no issues, "
-    "just say 'Clear'. Be very concise."
+    "You are inspecting a photo taken from a bicycle for a road safety report. "
+    "Only flag a problem if it is serious enough to be a real hazard to a cyclist "
+    "or to meaningfully disrupt the ride, for example: a pothole or crack deep or "
+    "wide enough to cause a crash or damage a wheel, a missing or broken drain "
+    "cover, a large patch of broken or crumbling asphalt, loose gravel or debris "
+    "blocking the path, a fallen sign or one that is missing where it is clearly "
+    "needed, or road markings so worn that the lane or crossing is unclear. "
+    "Do NOT flag minor wear: hairline cracks, small patches, faded paint that is "
+    "still readable, dirt, leaves, shadows, wet road surfaces, normal bumps, "
+    "or anything that would not slow down or endanger a cyclist. "
+    "If you are unsure, say 'Clear'. "
+    "If there is a real hazard, reply in this exact format and nothing else: "
+    "'HAZARD (High/Medium): <what it is and where in the frame>'. "
+    "If there is none, reply with exactly: 'Clear'."
 )
 
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
